@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="https://static.freshdev.io/fdk/2.0/assets/freshdesk.css">
+  <!-- <script src="https://static.freshdev.io/fdk/2.0/assets/fresh_client.js"></script> -->
+  <script src="https://cdn.freshdev.io/assets/app-client@2.js"></script>
+  <!-- <script src="https://cdn.freshdev.io/assets/app-client@2.js"></script> -->
+
+  <!--Cryons-->
+  <script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.js"
+></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./assets/iparams.css">
+<script src="../assets/iparams.js"></script>
+
+	<!-- ALert links-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+crossorigin="anonymous"></script>
+	<!-- Alert Links Ends -->
+<style>
+.dropdown {
+  width: 10%;
+  color: black;
+  border: 5;
+}
+
+#error_div {
+  color: red;
+}
+
+.select2-container {
+  width: 70%;
+}
+
+.select2-container--default {
+  width: 80% !important;
+}
+.select2-locked {
+  padding: 0px !important;
+}
+
+.app-config{
+  margin: 10px 20px;
+}
+
+
+
+/* model css */
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+
+.card {
+      margin-top: 10px;
+      background-color: #edf0f0;
+    }
+
+    .card-body {
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+
+
+
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  height:95%;
+}
+
+/* The Close Button */
+.editclose {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.editclose:hover,
+.editclose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.createclose {
+  color: #aaaaaa;
+  float: right;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.createclose:hover,
+.createclose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.table-action-icon{
+  padding-right: 5px;
+}
+.table-header-but{
+  padding: 5px;
+}
+
+.row-div{
+  /* margin-right: 20px; */
+  display: inline-block;
+  max-width: 20%;
+  margin-right: 10px;
+}
+
+.table-bottom{
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.panel {
+  background-color: #f0f1f5;
+  padding: 35px 25px;
+}
+.panel-box {
+  background-color: #e9ebf0;
+  /* margin-bottom: 10px; */
+  padding: 10px 15px;
+  border: 1px lightgrey solid;
+}
+.i-mt-12 {
+  margin-top: 12px;
+}
+.i-pt-12 {
+  padding-top: 12px;
+}
+.app-img {
+  width: 60px;
+  padding-right: 15px;
+}
+.disp-flex {
+  display: inline-flex;
+}
+
+.web-store{
+  padding: 5px;
+}
+
+.role-padd{
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 12px;
+}
+
+#pop-error{
+  display: none;
+}
+#load-spinn-mod{
+  display: none;
+}
+
+.alert-primary1 {
+  display: none;
+}
+.alert-danger1{
+  display: none;
+}
+
+
+
+
+
+   .configuration {
+      padding: 25px;
+    }
+
+    .fade-in-below {
+      animation: fadeInBelow .3s ease-in-out;
+    }
+
+    .mar-bot {
+      margin-bottom: 30px;
+    }
+
+    .card,
+    .centered-card,
+    .error-box,
+    .form-input {
+      background-color: #fff;
+    }
+
+    .card,
+    .centered-card {
+      padding: 25px;
+      box-shadow: 0 10px 20px rgb(0 0 0 / 10%), 0 20px 40px rgb(0 0 0 / 5%);
+      border-radius: 8px;min-height: 100px; /* Or any appropriate minimum height */
+ 
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+      margin-top: 0;
+    }
+
+    .app-title,
+    .nav-button,
+    .section-title {
+      text-transform: uppercase;
+    }
+
+    .app-title,
+    .section-title {
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+
+    .section-title>span {
+      vertical-align: middle;
+    }
+
+    .ember-basic-dropdown {
+      position: relative;
+    }
+
+    .ember-basic-dropdown,
+    .ember-basic-dropdown-content,
+    .ember-basic-dropdown-content *,
+    .ember-power-select-dropdown *,
+    .es-control,
+    .es-options {
+      box-sizing: border-box;
+    }
+
+    .ember-power-select-multiple-trigger {
+      padding: 2px 24px 2px 8px;
+    }
+
+    .ember-power-select-trigger {
+      background: #fff;
+      /* border: none; */
+      border: 1px solid #cfd7df;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 400;
+      /* padding: 1px 24px 1px 12px; */
+      overflow-y: hidden;
+      min-height: 34px;
+    }
+    .card3 {
+      card3 {
+      padding: 25px 80px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: all 0.5s ease; /* Smooth transition for size changes */
+      width: 100%;
+      margin-top: 10px;
+    }
+}
+.card1 {
+      margin-top: 10px;
+      background-color: #edf0f0;
+    }.note {
+  margin-top: 20px; /* Adds some space above the note */
+  font-size: 14px;  /* Adjust the font size as needed */
+  color: #333;      /* Adjust the color as needed */
+}
+
+
+    .card-body1 {
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    /* styles for headings */
+    .app-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #type_toast {
+    position: absolute; /* Make it relative to the card container */
+    top: 10px; /* Adjust based on your design */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Centering correction */
+    z-index: 100; /* Ensure it appears above other elements */
+}
+th, td {
+    width: 50%;
+}
+.status {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
+
+.success {
+    background-color: green;
+}
+
+.failed {
+    background-color: red;
+}
+#project-status-table {
+  width: 100%;
+  table-layout: fixed; 
+}
+
+#project-status-table th, #project-status-table td {
+  padding: 5px;
+  text-align: center; 
+  white-space: nowrap; 
+  word-wrap: break-word;
+}
+
+#project-status-table th:nth-child(3),
+#project-status-table td:nth-child(3) {
+  width: 30%; 
+}
+
+
+</style>
+<script type= "text/javascript">
+   var config_data;
+    var fd_domain, fd_api_key;
+    var client, count = 0, project_id,rolename, config,parntid=[];  
+    document.onreadystatechange = function () {
+      if (document.readyState === 'interactive') renderApp();
+      function renderApp() {
+        var onInit = app.initialized();
+        onInit
+          .then(function getClient(_client) {
+            window.client = _client;
+          })
+      }
+    };
+
+//getConfig method
+function getConfigs(configs) {
+    console.log("getConfigs", configs);
+
+        let getAzureUrl = document.getElementById("azure_url").value;
+        let addProtocol = "https://" + getAzureUrl;
+
+        let fd_api_key = document.getElementById('fd-api-key');
+        let fd_domain = document.getElementById('fd-domain');
+        let azureDevops_url = document.getElementById("azure_url");
+        let azureDevops_token = document.getElementById("azure_token");
+        if (configs.field_value) selectField.value = configs.field_value;
+        if (configs.api_key) fd_api_key.value = configs.api_key;
+        if (configs.domain) fd_domain.value = configs.domain;
+        if (configs.azure_url) azureDevops_url.value = configs.azure_url;
+        if (configs.azure_token) azureDevops_token.value = configs.azure_token;
+        api_key = azureDevops_token.value;
+        domain = azureDevops_url.value;
+
+    config = configs;
+    createProjectList();
+}
+
+//validate()
+
+async function validate() {
+    let isValid = true;
+    let fd_api_key = document.getElementById('fd-api-key');
+    let fd_domain = document.getElementById('fd-domain');
+    let azureDevops_url = document.getElementById("azure_url").value;
+    let azureDevops_token = document.getElementById("azure_token").value;
+    let valid = document.getElementById('type_toast');
+
+    console.log("count....", count);
+
+    if (fd_api_key.value && fd_domain.value && azureDevops_url && azureDevops_token && count > 0) {
+      isValid = true;
+    } else {
+        isValid = false;
+        let msg = "Error! Please validate the App. Click on validate button to validate the app.";
+        showError(valid,msg);
+    }
+
+    console.log("isValid...", isValid);
+    return isValid;
+}
+
+function showError(valid, message, tabName) {
+    if (valid) {
+        valid.setAttribute('content', message);
+        valid.setAttribute('type', 'error');
+        valid.setAttribute('open', true);
+    } else {
+        console.error("Valid element is not defined.");
+    }
+}
+
+function showSuccess(valid, message) {
+    if (valid) {
+        valid.setAttribute('content', message);
+        valid.setAttribute('type', 'success');
+        valid.setAttribute('open', true);
+        setTimeout(() => {
+            valid.removeAttribute('open'); 
+        }, 2000);
+    } else {
+        console.error("Valid element is not defined.");
+    }
+}
+
+function postConfigs() {
+    console.log("postConfigs called successfully");
+
+    let azure_con = document.getElementById("azure_token").value;
+    let token = "x:" + azure_con;
+    let hash = btoa(token);
+    let azuretoken = "Basic " + hash;
+
+    let getAzureUrl = document.getElementById("azure_url").value;
+    let addProtocol = "https://" + getAzureUrl;
+    let azureUrlPath = new URL(addProtocol).pathname;
+    let azureUrlHost = new URL(addProtocol).host;
+
+    let params = {
+        __meta: {
+            secure: ["api_key", "azuretoken", "azure_token"]
+        },
+        api_key: document.getElementById('fd-api-key').value,
+        domain: document.getElementById('fd-domain').value,
+        azure_url: document.getElementById("azure_url").value,
+        azure_url_host: azureUrlHost,
+        azure_url_path: azureUrlPath,
+        azure_token: document.getElementById("azure_token").value,
+        azuretoken: azuretoken,
+    };
+    let paramsWithStoreKey = Object.assign(params);
+    return paramsWithStoreKey;
+}
+
+function errorDisplay(msg){
+		let div_pop = document.getElementById("primary12");
+        while (div_pop.childNodes.length > 0) {
+          div_pop.removeChild(div_pop.childNodes[0]);
+        }
+
+        let div_primary = document.createElement("div");
+        while (div_primary.childNodes.length > 0) {
+          div_primary.removeChild(div_primary.childNodes[0]);
+        }
+        div_primary.setAttribute("class", "alert alert-danger alert-dismissible fade show");
+        div_primary.setAttribute("role", "alert");
+        div_primary.setAttribute("style", "border-top-width: 1px;top: 8px;margin-bottom: 14px;");
+        let strond_tag = document.createElement("strong");
+        strond_tag.innerHTML = msg;
+        let button_c = document.createElement("button");
+        button_c.setAttribute("type", "button");
+        button_c.setAttribute("class", "close");
+        button_c.setAttribute("data-dismiss", "alert");
+        button_c.setAttribute("aria-label", "Close");
+        let span_c = document.createElement("span");
+        span_c.setAttribute("aria-hidden", "true"); span_c.innerHTML = "&times";
+        button_c.appendChild(span_c);
+        strond_tag.appendChild(button_c);
+        div_primary.appendChild(strond_tag);
+        div_pop.appendChild(div_primary);
+	}
+var azure_url,azure_token,fd_api_key,fd_domain;
+setTimeout(()=>{
+  
+  fd_domain = document.getElementById("fd-domain");
+  fd_api_key = document.getElementById("fd-api-key");
+  azure_url=document.getElementById("azure_url");
+  azure_token=document.getElementById("azure_token");
+  
+  validateInputField();
+
+}, 1000);
+function validateInputField() {
+
+ azure_url.addEventListener("input", (data)=>{
+    if(azure_url.value == null || azure_url.value == ""){
+      azure_url.state = "error";
+      azure_url['error-text'] = 'Invalid code';
+    }else{
+      azure_url.state = "normal";
+      azure_url['state-text'] = 'Invalid name';
+    }
+  }); 
+ azure_token.addEventListener("input", (data)=>{
+    if(azure_token.value == null || azure_token.value == ""){
+      azure_token.state = "error";
+      azure_token['error-text'] = 'Invalid code';
+    }else{
+      azure_token.state = "normal";
+      azure_token['state-text'] = 'Invalid name';
+    }
+  });  
+  fd_domain.addEventListener("input", (data)=>{
+    if(fd_domain.value == null || fd_domain.value == ""){
+      fd_domain.state = "error";
+      fd_domain['error-text'] = 'Invalid code';
+    }else{
+      fd_domain.state = "normal";
+      fd_domain['state-text'] = 'Invalid name';
+    }
+  }); 
+  fd_api_key.addEventListener("input", (data)=>{
+    if(fd_api_key.value == null || fd_api_key.value == ""){
+      fd_api_key.state = "error";
+      fd_api_key['error-text'] = 'Invalid code';
+    }else{
+      fd_api_key.state = "normal";
+      fd_api_key['state-text'] = 'Invalid name';
+    }
+  });  
+}
+
+function validateAzure(event, data) {
+  var domain = document.getElementById("fd-domain");
+  var apikey = document.getElementById("fd-api-key");
+  var azureValid = document.getElementById("type_toast"); 
+  
+  azure_url.state = 'normal';
+  azure_token.state = 'normal';
+  domain.state = 'normal';
+  apikey.state = 'normal';
+
+  if (azure_url.value !== "" && azure_token.value !== "" && domain.value !== "" && apikey.value !== "") {
+    validateAzureApi(azure_url.value, azure_token.value)
+      .then((e) => {
+        let { status, msg } = e;
+        document.getElementById('show-validate-spin').style.display = "none";
+
+        if (status === true) {
+          // Success Message
+          if (azureValid) {
+            azureValid.setAttribute('content', "App validated successfully. Click on Install/Save.");
+            azureValid.setAttribute('type', 'success');
+            azureValid.setAttribute('open', true);
+            setTimeout(() => {
+              azureValid.removeAttribute('open'); // Hide the message
+        }, 2000);
+          } else {
+            console.error("Azure validation element not found.");
+          }
+        } else {
+          // Error Message
+          if (azureValid) {
+            azureValid.setAttribute('content', msg || "App validation failed. DevOps Domain/Token is invalid.");
+            azureValid.setAttribute('type', 'error');
+            azureValid.setAttribute('open', true);
+          } else {
+            console.error("Azure validation element not found.");
+          }
+        }
+      })
+      .catch((err) => {
+        if (azureValid) {
+          azureValid.setAttribute('content', err.msg || "An error occurred during validation.");
+          azureValid.setAttribute('type', 'error');
+          azureValid.setAttribute('open', true);
+        } else {
+          console.error("Azure validation element not found.");
+        }
+      });
+  } else {
+    // Handle missing inputs
+    let msg1 = domain.value !== "" ? "" : " Freshdesk domain name is required.";
+    let msg2 = apikey.value !== "" ? "" : " Freshdesk API Key is required.";
+    let msg3 = azure_url.value !== "" ? "" : " Azure DevOps domain name is required.";
+    let msg4 = azure_token.value !== "" ? "" : " Azure DevOps token is required.";
+
+    let message = `Validation failed. ${msg1}${msg2}${msg3}${msg4}`.trim();
+
+    // Display Error Message
+    if (azureValid) {
+      azureValid.setAttribute('content', message);
+      azureValid.setAttribute('type', 'error');
+      azureValid.setAttribute('open', true);
+    } else {
+      console.error("Azure validation element not found.");
+    }
+  }
+}
+
+function exitSpinAndDisable(load_spinn, event) {
+  load_spinn.style.display = 'none';
+  event.disabled = false;
+}
+async function validateFreshdeskApi(freshdeskurl, freshdesktoken) {
+      document.getElementById('show-validate-spin').style.display = "block";
+
+      var a = btoa(freshdesktoken);
+      return new Promise(async function (resolve, reject) {
+
+        var basic_auth = "Basic " + a;
+
+
+        try{
+        let body =  await client.request.invokeTemplate("validateFreshdeskApi",{
+          context:{
+            "freshdeskurl": freshdeskurl,
+            "basic_auth": basic_auth
+          }
+        });   
+					
+					
+						if(body)
+						{		
+							let details=JSON.parse(body.response);
+							window.email=details.contact.email;
+							window.name=details.contact.name;
+							resolve(true);
+						}
+						
+					}
+          catch(err){     
+					  			console.log("Error in validating fd api",err);		  
+					  resolve(false);  
+					} 
+              
+  })
+
+}
+
+function validateAzureApi(devops_url, devops_token) {
+ 
+      document.getElementById('show-validate-spin').style.display = "block";
+      let message;
+
+      let addProtocal = "https://" + devops_url;
+      console.log("addProtocal: ", addProtocal);
+
+      var token = "x" + ":" + devops_token;
+      var hash = btoa(token);
+
+      var basic_auth = "Basic " + hash;
+
+      let headers = {
+        "headers": {
+          "Authorization": basic_auth,
+          "Content-Type": "application/json-patch+json"
+        }
+      };
+
+      let url = `https://${devops_url}/_apis/projects?api-version=6.0`;
+
+      var token = "x" + ":" + devops_token;
+      var hash = btoa(token);
+      var basic_auth = "Basic " + hash;
+      return new Promise(async function (resolve, reject) {
+
+
+        let devopsUrlHost = new URL(addProtocal).host
+      let devopsUrlPath = new URL(addProtocal).pathname
+      // console.log("devopsUrlHost", devopsUrlHost);
+      // return new Promise(function (resolve, reject) {
+        try{
+      let data = await client.request.invokeTemplate("validateAzureApi", {
+        context:{
+          // "devops_url": devops_url,
+          "devops_url": devopsUrlHost,
+          "basic_auth": basic_auth,
+          "devops_url_path": devopsUrlPath
+        }
+      });
+
+  console.log("validateAzureApi res",data.response);
+  let tickets = JSON.parse(data.response);
+
+  var response = JSON.parse(data.response);
+            project_id = response.value[0].id;
+            window.pjs = response.value;
+            if (response) {
+              count = 1;
+
+              //Validate Freshdesk Credentials
+              let fddomain = document.getElementById("fd-domain").value;
+              let fdtoken = document.getElementById("fd-api-key").value;
+              validateFreshdeskApi(fddomain, fdtoken)
+                .then((data) => {
+                  // console.log("authenticated data:", data);
+                  if (data == true) {//console.log("Azure TRUE, FD TRUE");
+                    message = "App validated successfully. Click on Install/Save."; 
+                     resolve({ status: true, msg: message });
+                  } else {//console.log("Azure TRUE, FD FALSE");
+                  console.log("else part runs...");
+                    message = "Error! App validation failed. Freshdesk Domain Name/API Key is not valid.";
+                     resolve({ status: false, msg: message });
+                  }
+                })}
+}
+  catch (err) {
+    console.log("error in validate azure api", err);
+            count = 2;
+
+            //Validate Freshdesk Credentials
+            let fddomain = document.getElementById("fd-domain").value;
+            let fdtoken = document.getElementById("fd-api-key").value;
+            validateFreshdeskApi(fddomain, fdtoken)
+              .then((data) => {
+                if (data == true) {
+
+                  message = "Error! App validation failed. Azure DevOps Domain Name/Token is not valid.";
+                  resolve({ status: false, msg: message });
+                } else {
+                  message = "Error! App validation failed. Freshdesk Domain Name/API Key is not valid. Azure DevOps Domain Name/Token is not valid.";
+                  resolve({ status: false, msg: message });
+                }
+              })
+  }
+      });
+    }
+
+app.initialized()
+.then(function(_client) {
+
+  client = _client;
+  var token = "x" + ":" + "<%= iparam.azure_token%>";
+   var hash = btoa(token); 
+   
+   var basic_auth="Basic " + hash;
+	let headers = {
+	"headers":{
+		"Authorization": basic_auth,
+		"Content-Type" : "application/json-patch+json"
+	}
+  };  
+	var url_hash= "<%= iparam.azure_url%>";
+
+});
+function validateBlank()
+{
+count=0;
+
+					let div_pop=document.getElementById("primary12");
+						////console.log("div_pop",div_pop);
+						while (div_pop.childNodes.length > 0) {
+								  div_pop.removeChild(div_pop.childNodes[0]);
+								}
+						<!-- ERROR BLOCK-->
+						let div_pop1=document.getElementById("danger123");
+						////console.log("div_pop1",div_pop1);
+						while (div_pop1.childNodes.length > 0) {
+								  div_pop1.removeChild(div_pop1.childNodes[0]);
+								}
+					
+						let div_primary=document.createElement("div");
+						while (div_primary.childNodes.length > 0) {
+								  div_primary.removeChild(div_primary.childNodes[0]);
+								}
+}
+
+function validateFormBlank(){
+	  let Azure_state=document.getElementById("page-id");
+	  let fd_status=document.getElementById("fd_status");
+	  Azure_state.state = "normal";
+      Azure_state.setAttribute('hint-text',' '); 
+	  
+	  fd_status.state = "normal";
+      fd_status.setAttribute('hint-text',' '); 
+}
+</script>
+</head>
+<body>
+    <div class="alert-danger12" id="primary123" style="width: 55%;"></div>
+    <fw-toast-message  id="type_toast" ></fw-toast-message>
+<div id="iparams-lvl1">  
+  <div class="app-config">
+  <div class="row">
+<!--   <fw-tabs>
+        <fw-tab tab-header="App">-->
+    <div class="col-md-6">
+     
+          <div class="web-store">
+            <fw-input
+            id="fd-domain" onclick="validateBlank()"
+            label="Freshdesk Domain Name"
+            name="fd_domain" 
+            state="normal"
+            hint-text="Enter Freshdesk Domain Name"
+            error-text="Enter Freshdesk Domain Name"
+            placeholder="Ex: domain.freshdesk.com"
+            required>
+          </fw-input>
+          <fw-input
+          id="fd-api-key" onclick="validateBlank()"
+          label="Freshdesk API Key"
+          name="fd-api-key" 
+          state="normal"
+          hint-text="Enter Freshdesk API Key"
+          error-text="Enter Freshdesk API Key"
+          placeholder="Ex: ewr34r34rdwedewrfefr34"
+          required>
+        </fw-input>       
+
+    </div>
+
+<!-- </fw-tabs> -->
+</div>
+
+<div class="col-md-6">
+     
+  <div class="web-store">
+    <fw-input
+    id="azure_url" onclick="validateBlank()"
+    label="Azure DevOps Domain Name"
+    name="azure_url" 
+    state="normal"
+    hint-text="Enter Azure DevOps Domain Name"
+    error-text="Enter Azure DevOps Domain Name"
+    placeholder="Ex: dev.azure.com/domain"
+    required>
+  </fw-input>
+  <fw-input
+  id="azure_token" onclick="validateBlank()"
+  label="Azure DevOps Token"
+  name="fd-api-key" 
+  state="normal"
+  hint-text="Enter Azure DevOps Token"
+  error-text="Enter Azure DevOps Token"
+  placeholder="Ex: ewr34r34rdwedewrfefr34qlbaqbk"
+  required>
+</fw-input>       
+</div>
+</div>
+
+<div class="col-md-6"></div>	  
+<div class="col-md-6">
+	 	<div class="col-md-3">    
+			 
+			   <fw-button onclick="validateAzure(this, 'create')" id="validate_button" size="small" color="primary"> Validate </fw-button>
+		</div>
+		<div id="show-validate-spin"  class="col-md-2" style="display:none;top: 2px;">
+			  <fw-spinner size="medium" color="green"></fw-spinner>
+		</div>
+</div>		
+	
+
+<div class="col-md-6"></div>
+<div class="col-md-6">
+	  <div class="alert-primary12" id="primary12" style="border-top-width: 1px;top: 8px;margin-bottom: 14px;">
+		
+		</div>
+
+		<div class="alert-danger12" id="danger123">
+		
+		</div>
+</div>
+  
+    </div>
+</body>
+</html>
+

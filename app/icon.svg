@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #434443;
+      }
+
+      .cls-1, .cls-3 {
+        font-family: SourceSansRoman-Black, 'Source Sans Variable';
+        font-size: 39px;
+        font-variation-settings: 'wght' 900;
+        font-weight: 800;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5, .cls-3 {
+        fill: #95c43f;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_3" data-name="Layer 3">
+    <path class="cls-5" d="m34.72,111.38s52.67-37.02,101.94,11l-19.29-2.8v21.93s-30.87-26.16-65.91-7.91l-18.2-1.53,1.46-20.68Z"/>
+    <polygon class="cls-5" points="119.18 143.21 176.32 208.88 178.88 191 200.04 191 138.02 124.91 120.12 122.39 119.18 143.21"/>
+    <path class="cls-5" d="m32.74,112.66l-1.31,21.41,19.34,1.82s-22.42,31.75-2.71,56.93l-3.49,18.25h-19.71s-36.28-44.76,7.88-98.41Z"/>
+    <path class="cls-5" d="m50.77,196.11s23.36,22.63,56.93,4.74l21.53,1.07.95,18.82s-43.65,41.42-102.05-6.75l20.07-.36,2.55-17.52Z"/>
+  </g>
+  <g id="Layer_6" data-name="Layer 6">
+    <text class="cls-1" transform="translate(51.46 180.15)"><tspan x="0" y="0">D</tspan><tspan class="cls-4" x="25.04" y="0">e</tspan><tspan x="45.16" y="0">v</tspan></text>
+    <text class="cls-3" transform="translate(200.73 180.15)"><tspan x="0" y="0">O</tspan><tspan class="cls-6" x="26.99" y="0">p</tspan><tspan x="49.37" y="0">s</tspan></text>
+  </g>
+  <g id="Layer_4" data-name="Layer 4">
+    <polygon class="cls-2" points="207.79 134.28 132.27 219.66 131.8 199.38 110.63 199.38 187.72 113.17 208.62 114.85 207.79 134.28"/>
+    <path class="cls-2" d="m189.82,111.07l21.17,1.82v20.44s29.14-18.38,54.69,3.15h19.23l3.4-18.38s-33.17-38.79-98.49-7.03Z"/>
+    <path class="cls-2" d="m266.83,138.81s26.73,22.92-3.19,60.15l-3.06,19.74,18.21,3.23s57.02-39.18,11.4-103.13l-3.65,20h-19.71Z"/>
+    <path class="cls-2" d="m180.4,192.82l-1.87,16.86s42.31,49.93,98.88,13.8l-18.98-3.82,3.28-19.53s-33.26,19.24-61.68-7.3h-19.64Z"/>
+  </g>
+</svg>

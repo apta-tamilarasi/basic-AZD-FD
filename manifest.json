@@ -1,0 +1,96 @@
+{
+  "platform-version": "3.0",
+  "modules": {
+    "common": {
+      "requests": {
+        "validateFreshdeskApi": {},
+        "validateAzureApi": {},
+        "getRoles": {},
+        "getCustomField": {},
+        "createCustom": {},
+        "AddComments": {},
+        "fetchConversation": {},
+        "getAgent": {},
+        "addMultipleNotes": {},
+        "getAzureWorkItems": {},
+        "GetALLComments": {},
+        "fetchTicketDetails": {},
+        "AddNote": {},
+        "getTicketDetails": {},
+        "getAzureProjects": {},
+        "getAzureIterations": {},
+        "GetAllAzureUsersrecursion": {},
+        "getAzureWorkItemTypes": {},
+        "GetAreas": {},
+        "getAzureClassificationNodes": {},
+        "FetchWorkItemTypes": {},
+        "previousGetAllAzureWebhook": {},
+        "previousDeleteAzureWebhook": {},
+        "previousPostAzureWebhook": {},
+        "GetWorkItemFields": {},
+        "ExpandGetWorkItemFields": {},
+        "AzureProcessesList": {},
+        "GetAzureUsers": {},
+        "AzureAttachment": {},
+        "newWorkItemSubmit": {},
+        "postAzureWebhook": {},
+        "webhookComment": {},
+        "freshdeskPrivateNotes": {},
+        "getAzureStateList": {},
+        "updateWorkItemState": {},
+        "updateTicketStatus": {},
+        "fsAgentsRoles":{},
+        "fsAgentsEmail":{},
+        "fsGroups":{},
+        "FSAgent":{},
+        "postAddComments":{},
+        "postMultipleNotes":{},
+        "getWorkitemDetails":{},
+        "DeleteAzureNotes":{},
+        "deleteAzureWebhook":{},
+        "FreshdeskTicketAssignee":{},
+        "getResponder":{},
+        "getFreshserviceConversations":{},
+        "fsRequester":{},
+        "fsAgents":{},
+        "postattachments":{},
+        "getAzureTokenUser":{},
+        "checkWHPermission":{},
+        "createAzureWebhook":{},
+        "deleteWebhook":{},
+        "getAllAzureWebhook":{}
+      },
+      "functions": {
+        "GetallAzureUsers": {
+          "timeout": 10
+        },
+        "authentication": {
+          "timeout": 10
+        },
+        "AddComments": {
+          "timeout": 10
+        },
+        "addMultipleNotes": {
+          "timeout": 10
+        }
+      }
+    },
+    
+    "support_ticket": {
+      "location":{
+        "ticket_sidebar": {
+          "url": "index.html",
+          "icon": "icon.svg"
+        }
+      }
+    }
+  },
+  "engines": {
+    "node": "18.16.1",
+    "fdk": "9.3.0"
+  },
+  "dependencies": {
+    "request": "2.88.2",
+    "buffer": "5.6.0"
+  }
+}

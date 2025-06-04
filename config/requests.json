@@ -1,0 +1,783 @@
+{
+  "validateFreshdeskApi":{
+    "schema": {
+      "protocol": "https",
+        "method": "GET",
+        "host": "<%= context.freshdeskurl %>",
+        "path": "/api/v2/agents/me",
+        "headers": {
+            "Authorization": "<%= context.basic_auth %>",
+            "Content-Type": "application/json"
+        }
+    }
+},"validateAzureApi":{
+  "schema": {
+    "protocol": "https",
+      "method": "GET",
+      "host": "<%= context.devops_url %>",
+      "path": "<%= context.devops_url_path %>/_apis/projects",
+      "query":{
+           "api-version" :"6.0"
+  },
+      "headers": {
+          "Authorization": "<%= context.basic_auth %>",
+          "Content-Type": "application/json-patch+json"
+      }
+  }
+}, "getRoles": {
+  "schema": {
+    "method": "GET",
+    "host": "<%= context.domain%>",
+    "path": "/api/v2/roles",
+    "headers": {
+      "Authorization": "Bearer <%= encode(context.api_key) %>",
+      "Content-Type": "application/json"
+    }
+  }
+},
+"getCustomField": {
+  "schema": {
+    "method": "GET",
+    "host": "<%= iparam.domain%>",
+    "path": "/api/v2/admin/ticket_fields",
+    "headers": {
+      "Authorization": "Bearer <%= encode(iparam.api_key) %>",
+      "Content-Type": "application/json"
+    }
+  }
+},
+"createCustom": {
+  "schema": {
+    "method": "POST",
+    "host": "<%= iparam.domain%>",
+    "path": "/api/v2/admin/ticket_fields",
+    "headers": {
+      "Authorization": "Bearer <%= encode(iparam.api_key) %>",
+      "Content-Type": "application/json"
+    }
+  }
+},
+
+"fetchConversation": {
+  "schema": {
+      "method": "GET",
+      "host": "<%= iparam.domain %>",
+      "path": "/api/v2/tickets/<%= context.ticket_id %>/conversations?page=<%= context.page %>",
+      "headers": {
+          "Authorization": "Basic <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+      }
+  }
+},
+"fetchTicketDetails": {
+  "schema": {
+    "method": "GET",
+    "host": "<%= iparam.domain %>",
+    "path": "/api/v2/tickets/<%= context.ticket_id %>",
+    "headers": {
+        "Authorization": "Basic <%= encode(iparam.api_key) %>",
+        "Content-Type": "application/json"
+    }
+}
+},
+"getTicketDetails": {
+  "schema": {
+      "protocol": "https",
+      "method": "GET",
+      "host": "<%= context.domain %>",
+      "path": "/api/v2/tickets/<%= context.ticket_id %>",
+      "headers": {
+          "Authorization": "Basic <%= context.api_key %>",
+          "Content-Type": "application/json"
+      }
+  }
+},
+
+"getAgent": {
+  "schema": {
+      
+      "method": "GET",
+      "host": "<%= iparam.domain %>",
+      "path": "/api/v2/agents/me",
+      "headers": {
+          "Authorization": "Bearer <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+      }
+  }
+},
+
+  "getAzureWorkItems":{
+  "schema":{
+      "method": "GET",
+      "host": "<%= iparam.azure_url_host %>",
+      "path": "<%= iparam.azure_url_path %>/<%= iparam.project_id %>/_apis/wit/workitems/<%= context.cus_workItem_id %>",
+      "query":{
+          "api-version" :"5.1"
+ },
+     "headers": {
+         "Authorization": "<%= iparam.azuretoken %>",
+         "Content-Type": "application/json-patch+json"
+     }
+  }
+},
+"getAzureProjects": {
+  "schema": {
+      "protocol": "https",
+      "method": "GET",
+      "host": "<%= iparam.azure_url_host %>",
+      "path": "<%= iparam.azure_url_path %>/_apis/projects",
+      "query":{
+        "api-version" :"6.0"
+},
+      "headers": {
+          "Authorization": "<%= iparam.azuretoken %>",
+          "Content-Type": "application/json-patch+json"
+      }
+  }
+},
+"getAzureIterations": {
+  "schema": {
+    "method": "GET",
+    "host": "<%= iparam.azure_url_host %>",
+    "path": "<%= iparam.azure_url_path %>/<%= context.project_id %>/_apis/wit/classificationnodes/Iterations",
+    "query": {
+      "$depth": "32",
+      "api-version": "6.0"
+    },
+    "headers": {
+      "Authorization": "<%= iparam.azuretoken %>",
+      "Content-Type": "application/json-patch+json"
+    }
+  }
+},
+
+"GetAllAzureUsersrecursion": {
+  "schema": {
+    "method": "GET",
+    "host": "<%= iparam.azure_url_host %>",
+    "path": "<%= iparam.azure_url_path %>/_apis/graph/users",
+    "query": {
+      "api-version": "6.0-preview.1",
+      "continuationToken": "<%= context.continuationToken %>"
+    },
+    "headers": {
+      "Authorization": "<%= iparam.azuretoken %>",
+      "Content-Type": "application/json-patch+json"
+    }
+  }
+},
+
+"getAzureWorkItemTypes": {
+  "schema":{
+    "method": "GET",
+    "host": "<%= iparam.azure_url_host %>",
+    "path": "/<%= iparam.azure_url_path %>/<%= context.eventValue %>/_apis/wit/workitemtypes",
+    "query":{
+        "api-version" :"6.0"
+},
+   "headers": {
+       "Authorization": "<%= iparam.azuretoken %>",
+       "Content-Type": "application/json-patch+json"
+   }
+}
+},
+
+
+
+  "GetALLComments": {
+    "schema": {
+      "method": "GET",
+      "host": "<%= iparam.azure_url_host %>",
+      "path": "<%= iparam.azure_url_path %>/<%= context.project %>/_apis/wit/workitems/<%= context.id %>/comments",
+      "query": {
+        "api-version" :"5.1-preview.3"
+      },
+      "headers": {
+        "Authorization": "<%= iparam.azuretoken %>",
+        "Content-Type": "application/json-patch+json"
+      }
+    }
+  },
+  
+    "addMultipleNotes": {
+      "schema": {
+        "method": "POST",
+        "host": "<%= iparam.azure_url_host %>",
+        "path": "<%= iparam.azure_url_path %>/<%= context.project %>/_apis/wit/workItems/<%= context.modalData %>/comments",
+        "query": {
+          "api-version" :"5.1-preview.3"
+        },
+        "headers": {
+          "Authorization": "<%= iparam.azuretoken %>",
+          "Content-Type": "application/json"
+        }
+      
+      }
+    },
+    "AddComments": {
+      "schema": {
+          "method": "POST",
+          "host": "<%= iparam.azure_url_host %>",
+          "path": "<%= iparam.azure_url_path %>/<%= context.project %>/_apis/wit/workItems/<%= context.modalData %>/comments",
+          "query": {
+              "api-version": "5.1-preview.3"
+          },
+          "headers": {
+              "Authorization": "<%= iparam.azuretoken %>",
+              "Content-Type": "application/json"
+          }
+      }
+  },
+  
+    "AddNote": {
+      "schema": {
+        "method": "POST",
+        "host": "<%= iparam.domain %>",
+        "path": "/api/v2/tickets/<%= context.ticketId %>/notes",
+        "headers": {
+          "Authorization": "Basic <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    "GetAreas": {
+      "schema": {
+        "method": "GET",
+        "host": "<%= iparam.azure_url_host %>",
+        "path": "<%= iparam.azure_url_path %>/<%= context.project %>/_apis/wit/classificationnodes/Areas",
+        "query": {
+          "api-version": "6.0",
+          "$depth": "32"
+        },
+        "headers": {
+          "Authorization": "<%= iparam.azuretoken %>",
+          "Content-Type": "application/json-patch+json"
+        }
+      }
+    },
+    "getAzureClassificationNodes": {
+      "schema": {
+        "method": "GET",
+        "host": "<%= iparam.azure_url_host %>",
+        "path": "<%= iparam.azure_url_path %>/<%= context.project_id %>/_apis/wit/classificationnodes/Areas",
+        "query": {
+          "depth": "32",
+          "api-version": "6.0"
+        },
+        "headers": {
+          "Authorization": "<%= iparam.azuretoken %>",
+          "Content-Type": "application/json-patch+json"
+        }
+      }
+    },
+    
+      "FetchWorkItemTypes": {
+        "schema": {
+          "method": "GET",
+          "host": "<%= iparam.azure_url_host %>",
+          "path": "<%= iparam.azure_url_path %>/<%= context.projectId %>/_apis/wit/workitemtypes",
+          "query": {
+            "api-version": "5.0"
+          },
+          "headers": {
+            "Authorization": "<%= iparam.azuretoken %>",
+            "Content-Type": "application/json"
+          }
+        }
+      
+    },
+    "GetWorkItemFields": {
+        "schema": {
+          "method": "GET",
+          "host": "<%= iparam.azure_url_host %>",
+          "path": "<%= iparam.azure_url_path %>/<%= context.project_id %>/_apis/wit/fields?api-version=5.0",
+          "query": {
+            "api-version": "5.0"
+          },
+          "headers": {
+            "Authorization": "<%= iparam.azuretoken %>",
+            "Content-Type": "application/json"
+          }
+        } 
+    },
+    "ExpandGetWorkItemFields": {
+      "schema": {
+        "method": "GET",
+        "host": "<%= iparam.azure_url_host %>",
+        "path": "<%= iparam.azure_url_path %>/<%= context.project_id %>/_apis/wit/workitemtypes/<%= context.eventValue %>/fields?$expand=All&api-version=7.0",
+        "query": {
+          "api-version": "5.0"
+        },
+        "headers": {
+          "Authorization": "<%= iparam.azuretoken %>",
+          "Content-Type": "application/json"
+        }
+      } 
+  },
+  "AzureProcessesList": {
+      "schema": {
+        "method": "GET",
+        "host": "<%= iparam.azure_url_host %>",
+        "path": "<%= iparam.azure_url_path %>/_apis/work/processes/lists/<%= context.picklistId %>?api-version=5.0",
+        "query": {
+          "api-version": "5.0"
+        },
+        "headers": {
+          "Authorization": "<%= iparam.azuretoken %>",
+          "Content-Type": "application/json"
+        }
+      }
+  },
+  "GetAzureUsers": {
+    "schema": {
+      "method": "GET",
+      "host": "vssps.<%= iparam.azure_url_host %>",
+      "path": "<%= iparam.azure_url_path %>/_apis/graph/users",
+      "query": {
+        "api-version" :"6.0-preview.1"
+      },
+      "headers": {
+        "Authorization": "<%= iparam.azuretoken %>",
+        "Content-Type": "application/json"
+      }
+    }
+  
+},
+    "previousGetAllAzureWebhook":{
+      "schema": {
+          "method": "GET",
+          "host": "<%= context.azure_url_host %>",
+          "path": "<%= context.azure_url_path %>/_apis/hooks/subscriptions",
+          "query":{
+              "api-version": "7.1-preview.1"
+          },
+          "headers": {
+              "Authorization": "<%= context.azure_token %>",
+              "Content-Type": "application/json"
+          }
+      },
+      "options": {
+          "retryDelay": 1000
+              }
+  },
+  "previousDeleteAzureWebhook":{
+    "schema": {
+        "method": "DELETE",
+        "host": "<%= context.azure_url_host %>",
+        "path": "<%= context.azure_url_path %>/_apis/hooks/subscriptions/<%= context.webhook_id %>",
+        "query":{
+            "api-version": "7.1-preview.1"
+        },
+        "headers": {
+            "Authorization": "<%= context.azure_token %>",
+            "Content-Type": "application/json"
+        }
+    },
+    "options": {
+        "retryDelay": 1000
+    }
+},
+"getAllAzureWebhook":{
+        "schema": {
+            "method": "GET",
+            "host": "<%= iparam.azure_url_host %>",
+            "path": "<%= iparam.azure_url_path %>/_apis/hooks/subscriptions",
+            "query":{
+                "api-version": "7.1-preview.1"
+            },
+            "headers": {
+                "Authorization": "<%= iparam.azuretoken %>",
+                "Content-Type": "application/json"
+            }
+        },
+        "options": {
+            "retryDelay": 1000
+                  }
+    },
+"deleteAzureWebhook":{
+  "schema": {
+      "method": "DELETE",
+      "host": "<%= iparam.azure_url_host %>",
+      "path": "<%= iparam.azure_url_path %>/_apis/hooks/subscriptions/<%= context.webhook_id %>",
+      "query":{
+          "api-version": "7.1-preview.1"
+      },
+      "headers": {
+          "Authorization": "<%= iparam.azuretoken %>",
+          "Content-Type": "application/json"
+      }
+  },
+  "options": {
+      "retryDelay": 1000
+  }
+},
+"deleteWebhook":{
+  "schema": {
+      "method": "DELETE",
+      "host": "<%= context.azure_url_host %>",
+      "path": "<%= context.azure_url_path %>/_apis/hooks/subscriptions/<%= context.webhook_id %>",
+      "query":{
+          "api-version": "7.1-preview.1"
+      },
+      "headers": {
+          "Authorization": "<%= context.azuretoken %>",
+          "Content-Type": "application/json"
+      }
+  },
+  "options": {
+      "retryDelay": 1000
+  }
+},
+    "previousPostAzureWebhook":{
+      "schema": {
+          "method": "POST",
+          "host": "<%= context.azure_url_host %>",
+          "path": "<%= context.azure_url_path %>/_apis/hooks/subscriptions",
+          "query":{
+              "api-version": 5.0
+          },
+          "headers": {
+              "Authorization": "<%= context.azure_token %>",
+              "Content-Type": "application/json"
+          }
+      },
+      "options": {
+          "retryDelay": 1000
+      }
+  },
+  "AzureAttachment": {
+    "schema": {
+      "method": "POST",
+      "host": "<%= iparam.azure_url_host %>",
+      "path": "<%= iparam.azure_url_path %>/<%= context.projectId %>/_apis/wit/attachments?fileName=${fileName}&api-version=5.1",
+      "query": {
+        "api-version": "5.0"
+      },
+      "headers": {
+        "Authorization": "<%= iparam.azuretoken %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "newWorkItemSubmit":{
+        "schema":{
+            "method": "POST",
+            "host": "<%= iparam.azure_url_host %>",
+            "path": "/<%= iparam.azure_url_path %>/<%= context.cus_project_id %>/_apis/wit/workitems/$<%= context.cus_workItem_id %>",
+            "query":{
+                "api-version" :"6.0",
+                "bypassRules": true
+       },
+           "headers": {
+               "Authorization": "<%= iparam.azuretoken %>",
+               "Content-Type": "application/json-patch+json"
+           }
+        }
+    },
+    "postAzureWebhook":{
+        "schema": {
+            "method": "POST",
+            "host": "<%= iparam.azure_url_host %>",
+            "path": "<%= iparam.azure_url_path %>/_apis/hooks/subscriptions",
+            "query":{
+                "api-version": 5.0
+            },
+            "headers": {
+                "Authorization": "<%= iparam.azuretoken %>",
+                "Content-Type": "application/json"
+            }
+        },
+        "options": {
+            "retryDelay": 1000
+        }
+    },    
+    "createAzureWebhook":{
+      "schema": {
+          "method": "POST",
+          "host": "<%= context.azure_url_host %>",
+          "path": "<%= context.azure_url_path %>/_apis/hooks/subscriptions",
+          "query":{
+              "api-version": 5.0
+          },
+          "headers": {
+              "Authorization": "<%= context.azuretoken %>",
+              "Content-Type": "application/json"
+          }
+      },
+      "options": {
+          "retryDelay": 1000
+      }
+  },
+
+     "getAzureTokenUser":{
+      "schema": {
+          "method": "GET",
+          "host": "<%= context.azure_url_host %>",
+          "path": "<%= context.azure_url_path %>/_apis/connectionData?api-version=7.1-preview.1",
+          "headers": {
+              "Authorization": "<%= context.azuretoken %>",
+              "Content-Type": "application/json"
+          }
+      },
+      "options": {
+          "retryDelay": 1000
+      }
+  }, 
+  "checkWHPermission":{
+      "schema": {
+          "method": "GET",
+          "host": "<%= context.azure_url_host %>",
+          "path": "<%= context.azure_url_path %>/_apis/userentitlements/<%= context.user_id %>?api-version=7.1-preview.1",
+          "headers": {
+              "Authorization": "<%= context.azuretoken %>",
+              "Content-Type": "application/json"
+          }
+      },
+      "options": {
+          "retryDelay": 1000
+      }
+  },
+    "webhookComment":{
+      "schema":{
+          "method": "GET",
+          "host": "<%= iparam.azure_url_host %>",
+          "path": "<%= iparam.azure_url_path %>/<%= iparam.project_id %>/_apis/wit/workItems/<%= context.cus_workItem_id %>/comments",
+          "query":{
+              "api-version" :"5.1-preview.3"
+     },
+         "headers": {
+             "Authorization": "<%= iparam.azuretoken %>",
+             "Content-Type": "application/json-patch+json"
+         }
+      }
+  },
+  "freshdeskPrivateNotes":{
+    "schema": {
+        "method": "POST",
+        "host": "<%= iparam.domain %>",
+        "path": "/api/v2/tickets/<%= context.ticket_id %>/notes",
+        "headers": {
+            "Authorization": "Basic <%= encode(iparam.api_key) %>",
+            "Content-Type": "application/json"
+        }
+    }
+  },
+  "getAzureStateList": {
+  "schema": {
+    "method": "GET",
+    "host": "<%= iparam.azure_url_host %>",
+    "path": "<%= iparam.azure_url_path %>/<%= context.project_id %>/_apis/wit/workitemtypes/<%= context.workItem_Type %>/states",
+    "query": {
+      "$depth": "32",
+      "api-version": "6.0"
+    },
+    "headers": {
+      "Authorization": "<%= iparam.azuretoken %>",
+      "Content-Type": "application/json-patch+json"
+    }
+  }
+},
+"updateWorkItemState":{
+  "schema":{
+      "method": "PATCH",
+      "host": "<%= iparam.azure_url_host %>",
+      "path": "<%= iparam.azure_url_path %>/<%= context.project_id %>/_apis/wit/workitems/<%= context.workItem_id %>",
+      "query":{
+          "api-version" :"6.0",
+          "bypassRules": true
+      },
+     "headers": {
+         "Authorization": "<%= iparam.azuretoken %>",
+         "Content-Type": "application/json-patch+json"
+     }
+  }
+},
+"updateTicketStatus":{
+  "schema": {
+        "method": "PUT",
+        "host": "<%= iparam.domain %>",
+        "path": "/api/v2/tickets/<%= context.ticket_id %>",
+        "headers": {
+            "Authorization": "Basic <%= encode(iparam.api_key) %>",
+            "Content-Type": "application/json"
+        }
+    }
+},
+"fsAgentsRoles":{
+        "schema": {
+            "method": "GET",
+            "host": "<%= context.domain %>",
+            "path": "/api/v2/roles",
+            "headers": {
+                "Authorization": "Basic <%= encode(context.api_key) %>",
+                "Content-Type": "application/json"
+            }
+        }
+    },
+    "fsAgentsEmail":{
+        "schema": {
+            "method": "GET",
+            "host": "<%= context.domain %>",
+            "path": "/api/v2/agents",
+            "headers": {
+                "Authorization": "Basic <%= encode(context.api_key) %>",
+                "Content-Type": "application/json"
+            }
+        }
+    },
+   "fsGroups": {
+  "schema": {
+    "method": "GET",
+    "host": "<%= context.domain %>",
+    "path": "/api/v2/groups?page=<%= context.page %>",
+    "headers": {
+      "Authorization": "Basic <%= encode(context.api_key) %>",
+      "Content-Type": "application/json"
+    }
+  }
+},
+ "FSAgent":{
+        "schema": {
+            "method": "GET",
+            "host": "<%= iparam.domain %>",
+            "path": "<%= context.url %>",
+            "headers": {
+              "Authorization": "Basic <%= encode(iparam.api_key) %>",
+              "Content-Type": "application/json"
+            }
+          }
+      },
+      "postAddComments":{
+        "schema": {
+            "method": "POST",
+            "host": "<%= context.url %>",
+            "headers": {
+                "Authorization": "<%= iparam.azuretoken %>",
+                "Content-Type": "application/json-patch+json"
+            }
+        },
+        "options": {
+            "retryDelay": 1000
+        }
+    },
+    "postMultipleNotes":{
+      "schema": {
+          "method": "POST",
+          "host": "<%= iparam.azure_url %>",
+          "path": "/<%= context.project %>/_apis/wit/workItems/<%= context.item_arr %>/comments?api-version=5.1-preview.3",
+          "headers": {
+              "Authorization": "<%= iparam.azuretoken %>",
+              "Content-Type": "application/json-patch+json"
+          }
+      },
+      "options": {
+          "retryDelay": 1000
+              }
+  },
+  "getWorkitemDetails":{
+    "schema": {
+        "method": "GET",
+        "host": "<%= iparam.azure_url_host %>",
+        "path": "<%= iparam.azure_url_path %>/<%= iparam.project_id %>/_apis/wit/workItems/<%= context.workitem_Id%>",
+        "query":{
+            "api-version" :"5.1-preview.3"
+   },
+        "headers": {
+            "Authorization": "<%= iparam.azuretoken %>",
+            "Content-Type": "application/json"
+        }
+    },
+    "options": {
+        "retryDelay": 1000
+    }
+},
+"DeleteAzureNotes":{
+    "schema": {
+        "method": "DELETE",
+        "host": "<%= iparam.azure_url_host %>",
+        "path": "<%= iparam.azure_url_path %>/<%= context.project_id %>/_apis/wit/workItems/<%= context.workItemId%>/comments/<%= context.commentId%>",
+        "query":{
+            "api-version" :"5.1-preview.3"
+   },
+        "headers": {
+            "Authorization": "<%= iparam.azuretoken %>",
+            "Content-Type": "application/json"
+        }
+    },
+    "options": {
+        "retryDelay": 1000
+    }
+},
+"getResponder":{
+  "schema": {
+      "method": "GET",
+      "host": "<%= iparam.domain %>",
+      "path": "/api/v2/tickets/<%= context.ticket_id %>",
+      "headers": {
+          "Authorization": "Basic <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+      }
+  }
+}, "FreshdeskTicketAssignee":{
+  "schema": {
+      "method": "GET",
+      "host": "<%= iparam.domain %>",
+      "path": "/api/v2/agents/<%= context.responder_id %>",
+      "headers": {
+          "Authorization": "Basic <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+      }
+  }
+},
+"getFreshserviceConversations":{
+  "schema": {
+      "method": "GET",
+      "host": "<%= iparam.domain %>",
+      "path": "/api/v2/tickets/<%= context.ticket_id %>/conversations",
+      "headers": {
+          "Authorization": "Basic <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+      }
+  }
+},
+"fsRequester":{
+  "schema": {
+      "method": "GET",
+      "host": "<%= iparam.domain %>",
+      "path": "/api/v2/contacts/<%= context.requester_id %>",
+      "headers": {
+          "Authorization": "Basic <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+      }
+  }
+},
+"fsAgents":{
+  "schema": {
+      "method": "GET",
+      "host": "<%= iparam.domain %>",
+      "path": "/api/v2/agents/<%= context.agent_id %>",
+      "headers": {
+          "Authorization": "Basic <%= encode(iparam.api_key) %>",
+          "Content-Type": "application/json"
+      }
+  }
+},
+"postattachments":{
+  "schema": {
+      "method": "PATCH",
+      "host": "<%= iparam.azure_url_host %>",
+      "path": "<%= iparam.azure_url_path %>/<%= context.project_id %>/_apis/wit/workItems/<%= context.work_item_id %>",
+      "query":{
+          "api-version" :"5.1-preview.3",
+           "bypassRules": true
+ },
+      "headers": {
+          "Authorization": "<%= iparam.azuretoken %>",
+          "Content-Type": "application/json-patch+json"
+      }
+  },
+  "options": {
+      "retryDelay": 1000
+  }
+}
+}
