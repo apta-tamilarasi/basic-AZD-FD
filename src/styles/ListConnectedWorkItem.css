@@ -1,0 +1,158 @@
+.drop-down-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.drop-down {
+    width: 12rem;
+    /* background-color: #181b34; */
+}
+
+.space-between {
+    padding-bottom: 0.8rem;
+    padding-top: 2rem;
+}
+
+
+.space-between-azureModal{   
+    padding-top: 0.5rem;
+}
+
+
+.each-div {
+    padding-right: 2rem;
+}
+
+.create-button {
+    margin-top: 4rem;
+}
+.item-create-button {
+    margin-bottom: 1rem;  
+    /* margin-left: 2rem; */
+}
+
+.div-alignment{
+    margin-left: 2rem;
+    margin-right: 1px;
+    
+}
+.margin-top{
+    margin-top: 2rem;   
+}
+.submit{
+    text-align: center;
+}
+/* For card Expand and Collapse */
+.content-header{
+    margin-bottom: 8px;
+    /* color: #1677ff; */
+    /* color: rgb(87, 155, 252); */
+    --heading-clamp-lines: 1;
+    font-size: 14px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+
+}
+.card-header{
+    /* color:#75a3a3;font-size: 12px;margin-top:1px;padding-top: 2px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;-webkit-font-smoothing: antialiased;font-size: 12px; */
+    /* font-size: 14px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'; */
+    /* font-family: Figtree, Roboto, Rubik, Noto Kufi Arabic, Noto Sans JP, sans-serif; */
+    /* color: #75a3a3; */
+    font-size: 14px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    display: inline-block;
+    margin-right: 0;
+    padding: 5px;
+    border: 0;
+    font-size: 100%;  
+    vertical-align: baseline; 
+    font-weight: 600;  
+    /* --text-color-on-card:#323338; */
+    /* font-weiht: bold; */
+}
+.view-comments{
+    font-size: 14px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    display: inline-block;
+    /* color: #75a3a3; */
+    /* color: #9699a6; */
+    /* color: rgb(71, 88, 103); */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-right: 0.5rem;
+    font-size: 100%;  
+    vertical-align: baseline;
+}
+.label{
+    /* font-size: 12px;font-family:-apple-system, BlinkMacSystemFont; */
+    font-size: 14px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    /* font-family: Figtree, Roboto, Rubik, Noto Kufi Arabic, Noto Sans JP, sans-serif; */
+    display: inline-block;
+    margin: 3px;
+    padding: 0;
+    border: 0;
+    font-size: 100%;  
+    vertical-align: baseline;
+    --text-color-on-card:#323338;
+    margin-left: 8px;
+    font-weight: 300;
+  
+}
+.com-h{
+    margin-right: 16px;
+    margin-bottom: 8px;
+    /* ,,color: #428bca  ; */
+    /* background-color: #428bca; */
+    /* border-color: #428bca; */
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    padding: 20px;
+    box-sizing: content-box;
+    /* width: 100%; */
+    /* border: solid #dcdfe1 1px; */
+    padding: 5px;
+}
+.New-try{
+    border: 1px solid #d9d9d9;
+    border-bottom: 1px solid #ffffff;
+    /* color: white; */
+    border-radius: 2px;
+    /* border-bottom: 1px solid #d9d9d9; */
+    padding: 12px 16px;
+    text-align: center;
+    /* background: var(--primary-color); */
+    background: #fafafa;
+}
+.galleryInner img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.mondayDiv{
+    padding-bottom: 5px;
+}
+.label-component--text{
+    padding-top: 5px;
+}
+.galleryInner img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.monday-storybook-alert-banner_small-container{
+    width:60% !important;
+}
+.test {
+    width: 100%;
+    max-width: 99%;
+    /* overflow: hidden; */
+    white-space: normal;
+  }
+  

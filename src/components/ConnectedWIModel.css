@@ -1,0 +1,72 @@
+.modal-content {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  }
+  
+  .work-item-details {
+    font-size: 18px; 
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  strong {
+    color: #333; /* Dark color for labels */
+  }
+  
+  .detail {
+    color: #3e3d3d; /* Darker gray color */
+    font-weight: 400; /* Normal or lighter weight */
+    font-size: 14px; /* Adjust font size to match */
+    font-family: 'Arial', sans-serif; /* Use a clean, simple font family */
+    line-height: 1.5; /* Add line-height for better readability */
+  }
+  
+  
+  @media (max-width:20px) {
+    .modal-content {
+      padding: 15px;
+    }
+  
+    .work-item-details {
+      font-size: 16px;
+    }
+  }
+ .modal-buttons{
+  padding: 5%;
+    margin-left: 25%
+ }
+ .error-card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.panel-warning {
+  border-color: #faebcc;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-heading {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+}
+
+.panel-body {
+  padding: 15px;
+  color: #a94442;
+}
+
+ 
+  

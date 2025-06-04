@@ -1,0 +1,43 @@
+.connectWILabel{
+
+    color: #007bff!important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+    font-weight: 500;
+    margin: auto;
+    width: 70%;
+}
+
+.WILabel{
+    margin: auto;
+    width: 70%;
+}
+.connectWIForm{
+    margin: auto;
+    width: 90%;
+}
+.connectWIInput{
+    padding: 5px;
+    margin: auto;
+    width:auto;
+}
+.connectWIButton{
+    /* margin: auto;
+    width: 50%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-connect-wi-label{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    color: rgb(71, 88, 103);
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    display: block;
+}
